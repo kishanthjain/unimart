@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+    <link rel="stylesheet" href="g.css">
+</head>
+<body>
+
+<body>
+
+<div class="profile-container">
+
+    <div class="profile-header">
+
+        <div class="avatar">
+            👤
+        </div>
+        
+  <h1 id="userName">User Name</h1>
+  <p id="college">College | Branch | Year</p>
+
+        <div>
+            <h1 id="userName"></h1>
+            <p id="college"></p>
+        </div>
+
+    </div>
+
+    <div class="profile-stats">
+
+        <div class="stat-card">
+            ⭐
+            <h3>4.8</h3>
+            <p>Rating</p>
+        </div>
+
+        <div class="stat-card">
+            📦
+            <h3>0</h3>
+            <p>Orders</p>
+        </div>
+
+        <div class="stat-card">
+            ❤️
+            <h3>0</h3>
+            <p>Wishlist</p>
+        </div>
+
+        <div class="stat-card">
+            🛒
+            <h3>0</h3>
+            <p>Cart</p>
+        </div>
+
+    </div>
+
+    <div class="profile-menu">
+
+      
+
+  <a href="orders.html" class="menu-card">📦 My Orders</a>
+
+  <a href="wishlist.html" class="menu-card">❤️ Wishlist</a>
+
+  <a href="cart.html" class="menu-card">🛒 My Cart</a>
+
+  <a href="seller-dashboard.html" class="menu-card">📤 My Listings</a>
+
+ <a href="edit-profile.html" class="menu-card">
+⚙ Edit Profile
+</a>
+
+  <button onclick="logout()" class="menu-card logout">🚪 Logout</button>
+
+
+    </div>
+
+</div>
+<script>
+const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!user) {
+  window.location.href = "login.html";
+} else {
+  document.getElementById("userName").innerText = user.name;
+  document.getElementById("college").innerText =
+    user.college + " | " + user.branch + " | " + user.year;
+}
+
+function logout() {
+  localStorage.removeItem("currentUser");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniMart | Student Marketplace</title>
+
+<link rel="stylesheet" href="g.css">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-store"></i>
+      <span>UniMart</span>
+    </div>
+
+    <nav>
+  <nav>
+  <a href="index.html">
+    <i class="fa-solid fa-house"></i> Home
+  </a>
+
+  <a href="post-item.html">
+    <i class="fa-solid fa-plus"></i> Sell Item
+  </a>
+
+  <a href="wishlist.html">
+    <i class="fa-solid fa-heart"></i> Wishlist
+  </a>
+
+  <a href="cart.html">
+    <i class="fa-solid fa-cart-shopping"></i> Cart
+  </a>
+
+  <a href="orders.html">
+    <i class="fa-solid fa-box"></i> Orders
+  </a>
+
+  <a href="seller-dashboard.html">
+    <i class="fa-solid fa-chart-line"></i> Seller
+  </a>
+
+  <a href="register.html" class="login-btn">
+    <i class="fa-solid fa-user"></i> Login
+  </a>
+</nav>
+</nav>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero compact-hero">
+    <div class="hero-content">
+      <span class="tag">Student-to-Student Marketplace</span>
+
+      <h1>Turn Unused Items Into Cash.</h1>
+
+     <p>
+        Connect with students across Bengaluru.
+        Buy textbooks, electronics, cycles, hostel essentials
+        and more from verified college students.
+
+      </p>
+
+      <div class="hero-buttons">
+        <a href="post-item.html" class="primary-btn">
+          <i class="fa-solid fa-plus"></i> Sell an Item
+        </a>
+
+        <a href="#marketplace" class="secondary-btn">
+          Explore Items
+        </a>
+      </div>
+    </div>
+
+    </div>
+<!-- QUICK CATEGORIES -->
+
+<section class="quick-categories">
+
+  <a href="category.html?type=Academic" class="cat-card">
+📚 Books
+</a>
+
+  <a href="category.html?type=Electronics" class="cat-card">
+💻 Electronics
+</a>
+ <a href="category.html?type=Cycles" class="cat-card">
+🚲 Cycles
+</a>
+<a href="category.html?type=Hostel" class="cat-card">
+🎒 Hostel Items
+</a>
+
+<a href="category.html?type=Fashion" class="cat-card">
+👕 Fashion
+</a>
+
+  <a href=" category.html?type=Fitness" class="cat-card">
+🏋️ Fitness
+</a>
+
+</section>
+
+
+  <!-- STATS -->
+  <section class="stats">
+    <div>
+      <h2>120+</h2>
+      <p>Active Listings</p>
+    </div>
+
+    <div>
+      <h2>25+</h2>
+      <p>Colleges</p>
+    </div>
+
+    <div>
+      <h2>80+</h2>
+      <p>Successful Sales</p>
+    </div>
+
+    <div>
+      <h2>4.8★</h2>
+      <p>Average Rating</p>
+    </div>
+  </section>
+
+  <!-- SEARCH AND FILTER -->
+  <section class="search-section" id="marketplace">
+    <h2>Explore Marketplace</h2>
+    <p>Search items from your college or nearby colleges.</p>
+
+    <div class="filters">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search books, cycles, electronics..." />
+      </div>
+
+      <select>
+        <option>All Colleges</option>
+        <option>MVJCE</option>
+        <option>RNSIT</option>
+        <option>DSCE</option>
+        <option>BMSCE</option>
+        <option>PES University</option>
+      </select>
+
+     <select id="categoryFilter">
+  <option value="All">All Categories</option>
+  <option value="Academic">Academic</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Hostel Essentials">Hostel Essentials</option>
+  <option value="Transport">Transport</option>
+  <option value="Fashion">Fashion</option>
+  <option value="Fitness">Fitness</option>
+</select>
+
+      <select>
+        <option>Sort by Date</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- CATEGORY CHIPS -->
+  <section class="category-chips">
+    <span>📚 Books</span>
+    <span>💻 Electronics</span>
+    <span>🏠 Hostel Items</span>
+    <span>🚲 Cycles</span>
+    <span>👕 Fashion</span>
+    <span>🏋️ Fitness</span>
+    <span>🎮 Gaming</span>
+  </section>
+
+  <!-- FEATURED SECTIONS -->
+  <section class="section-heading">
+    <h2>🔥 Trending on Campus</h2>
+    <p>Most viewed and saved items by students this week.</p>
+  </section>
+
+  <!-- ITEM GRID -->
+  <section class="items-grid" id="itemsGrid">
+
+    <div class="item-card">
+      <div class="image-box academic">
+        <span class="label">Featured</span>
+        📘
+      </div>
+
+      <div class="item-info">
+        <h3>Engineering Mathematics Book</h3>
+        <p>Academic • MVJCE</p>
+
+        <div class="price-row">
+          <h2>₹350</h2>
+          <span>Good</span>
+        </div>
+
+        <div class="seller-row">
+          <p>⭐ 4.7 Seller</p>
+          <button><i class="fa-regular fa-heart"></i></button>
+        </div>
+
+        <a href="item-details.html" class="view-btn">View Details</a>
+      </div>
+    </div>
+
+    <div class="item-card tall">
+      <div class="image-box electronics">
+        <span class="label urgent">Popular</span>
+        💻
+      </div>
+
+      <div class="item-info">
+        <h3>Wireless Headphones</h3>
+        <p>Electronics • RNSIT</p>
+
+        <div class="price-row">
+          <h2>₹900</h2>
+          <span>Like New</span>
+        </div>
+
+        <div class="seller-row">
+          <p>⭐ 4.9 Seller</p>
+          <button><i class="fa-regular fa-heart"></i></button>
+        </div>
+
+        <a href="item-details.html" class="view-btn">View Details</a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="image-box transport">
+        🚲
+      </div>
+
+      <div class="item-info">
+        <h3>College Cycle</h3>
+        <p>Transport • DSCE</p>
+
+        <div class="price-row">
+          <h2>₹3,200</h2>
+          <span>Fair</span>
+        </div>
+
+        <div class="seller-row">
+          <p>⭐ 4.5 Seller</p>
+          <button><i class="fa-regular fa-heart"></i></button>
+        </div>
+
+        <a href="item-details.html" class="view-btn">View Details</a>
+      </div>
+    </div>
+
+    <div class="item-card tall">
+      <div class="image-box hostel">
+        🪑
+      </div>
+
+      <div class="item-info">
+        <h3>Study Chair</h3>
+        <p>Hostel Essential • BMSCE</p>
+
+        <div class="price-row">
+          <h2>₹700</h2>
+          <span>Good</span>
+        </div>
+
+        <div class="seller-row">
+          <p>⭐ 4.6 Seller</p>
+          <button><i class="fa-regular fa-heart"></i></button>
+        </div>
+
+        <a href="item-details.html" class="view-btn">View Details</a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="image-box electronics">
+        <span class="label">Top Pick</span>
+        🔌
+      </div>
+
+      <div class="item-info">
+        <h3>Arduino Starter Kit</h3>
+        <p>Electronics • MVJCE</p>
+
+        <div class="price-row">
+          <h2>₹850</h2>
+          <span>Good</span>
+        </div>
+
+        <div class="seller-row">
+          <p>⭐ 4.8 Seller</p>
+          <button><i class="fa-regular fa-heart"></i></button>
+        </div>
+
+        <a href="item-details.html" class="view-btn">View Details</a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="image-box fashion">
+        🎒
+      </div>
+
+      <div class="item-info">
+        <h3>College Backpack</h3>
+        <p>Fashion • PES University</p>
+
+        <div class="price-row">
+          <h2>₹450</h2>
+          <span>Good</span>
+        </div>
+
+        <div class="seller-row">
+          <p>⭐ 4.4 Seller</p>
+          <button><i class="fa-regular fa-heart"></i></button>
+        </div>
+
+        <a href="item-details.html" class="view-btn">View Details</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TRUST SECTION -->
+  <section class="trust-section">
+    <div>
+      <i class="fa-solid fa-user-shield"></i>
+      <h3>Verified Students</h3>
+      <p>College details help build safer student trading.</p>
+    </div>
+
+    <div>
+      <i class="fa-solid fa-location-dot"></i>
+      <h3>Safe Pickup Points</h3>
+      <p>Meet at library, gate, canteen, or academic block.</p>
+    </div>
+
+    <div>
+      <i class="fa-solid fa-lock"></i>
+      <h3>Privacy First</h3>
+      <p>Contact details are shown only after seller approval.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <i class="fa-solid fa-store"></i>
+      UniMart
+    </div>
+
+    <p>Connecting students across campuses to buy, sell, and reuse.</p>
+
+    <p class="copyright">
+      © 2026 UniMart. Student Marketplace Project.
+    </p>
+  </footer>
+
+  
+  <script src="marketplace.js"></script>
+  
+</body>
+</html>

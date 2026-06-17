@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | UniMart</title>
+
+  <link rel="stylesheet" href="g.css" />
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <a href="index.html">← Back to UniMart</a>
+
+  <section class="auth-page">
+
+    <div class="auth-left">
+      <h1>Join UniMart</h1>
+      <p>
+        Create your student profile and start buying, selling,
+        and reusing items across Bengaluru colleges.
+      </p>
+
+      <div class="auth-points">
+        <span><i class="fa-solid fa-shield-halved"></i> Verified student profile</span>
+        <span><i class="fa-solid fa-store"></i> Sell unused items</span>
+        <span><i class="fa-solid fa-heart"></i> Save favorite items</span>
+      </div>
+    </div>
+
+    <div class="auth-card">
+      <h2>Create Account</h2>
+      <p class="auth-subtitle">Register as a college student</p>
+
+      <form id="registerForm">
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" name="name" placeholder="Full Name" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-building-columns"></i>
+          <select name="college" required>
+            <option value="">Select College</option>
+            <option>MVJ College of Engineering</option>
+            <option>RNSIT</option>
+            <option>DSCE</option>
+            <option>BMSCE</option>
+            <option>PES University</option>
+            <option>MSRIT</option>
+            <option>RVCE</option>
+            <option>CMRIT</option>
+            <option>New Horizon College</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="input-group">
+            <i class="fa-solid fa-code-branch"></i>
+            <select name="branch" required>
+              <option value="">Branch</option>
+              <option>ECE</option>
+              <option>CSE</option>
+              <option>ISE</option>
+              <option>EEE</option>
+              <option>Mechanical</option>
+              <option>Civil</option>
+              <option>AIML</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <select name="year" required>
+              <option value="">Year</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-phone"></i>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" name="password" placeholder="Create Password" required>
+        </div>
+
+        <button class="auth-btn" type="submit">
+          Create Account
+        </button>
+
+        <p class="switch-auth">
+          Already have an account?
+          <a href="login.html">Login</a>
+        </p>
+      </form>
+    </div>
+
+  </section>
+<script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Item | UniMart</title>
+
+  <link rel="stylesheet" href="g.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<a href="profile.html" class="back-home">← Back</a>
+
+<section class="auth-page">
+
+  <div class="auth-left">
+    <h1>Sell Smart</h1>
+    <p>
+      Post your unused books, electronics, hostel items, cycles, and more.
+      Let other students discover and buy them easily.
+    </p>
+
+    <div class="auth-points">
+      <span><i class="fa-solid fa-camera"></i> Add item details</span>
+      <span><i class="fa-solid fa-location-dot"></i> Choose safe pickup point</span>
+      <span><i class="fa-solid fa-handshake"></i> Accept offers from students</span>
+    </div>
+  </div>
+
+  <div class="auth-card">
+    <h2>Post New Item</h2>
+    <p class="auth-subtitle">Create your marketplace listing</p>
+
+    <form id="postItemForm">
+      <div class="input-group">
+        <i class="fa-solid fa-box"></i>
+       <input type="text" name="itemName" placeholder="Item Name" required>
+      </div>
+
+      <div class="form-row">
+        <div class="input-group">
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+          <input type="number" name="price" placeholder="Price" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-star"></i>
+          <select name="condition" required>
+  <option value="">Condition</option>
+            <option>New</option>
+            <option>Like New</option>
+            <option>Good</option>
+            <option>Fair</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <i class="fa-solid fa-layer-group"></i>
+        <select name="category" required>
+  <option value="">Category</option>
+          <option>Academic</option>
+          <option>Electronics</option>
+          <option>Hostel Essentials</option>
+          <option>Transport</option>
+          <option>Fashion</option>
+          <option>Fitness</option>
+          <option>Gaming</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <i class="fa-solid fa-building-columns"></i>
+        <select name="college" required>
+  <option value="">College</option>
+          <option>MVJ College of Engineering</option>
+          <option>RNSIT</option>
+          <option>DSCE</option>
+          <option>BMSCE</option>
+          <option>PES University</option>
+          <option>MSRIT</option>
+          <option>RVCE</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <i class="fa-solid fa-location-dot"></i>
+        <select name="pickup" required>
+  <option value="">Pickup Point</option>
+          <option>Main Gate</option>
+          <option>Library</option>
+          <option>Canteen</option>
+          <option>Academic Block</option>
+          <option>Boys Hostel</option>
+          <option>Girls Hostel</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <i class="fa-solid fa-image"></i>
+        <input type="url" name="image" placeholder="Image URL">
+      </div>
+
+      <div class="input-group textarea-box">
+        <i class="fa-solid fa-align-left"></i>
+        <textarea name="description" placeholder="Item Description" required></textarea>
+      </div>
+
+      <label class="check-row">
+        <input type="checkbox">
+        Price is negotiable
+      </label>
+
+      <label class="check-row">
+        <input type="checkbox">
+        Delivery inside campus available
+      </label>
+
+      <button class="auth-btn" type="submit">
+        Publish Listing
+      </button>
+    </form>
+  </div>
+
+</section>
+<script src="marketplace.js"></script>
+</body>
+</html>

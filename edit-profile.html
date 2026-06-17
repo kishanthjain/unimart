@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Profile | UniMart</title>
+  <link rel="stylesheet" href="g.css">
+</head>
+<body>
+
+<a href="profile.html" class="back-home">← Back</a>
+
+<div class="auth-page">
+
+  <div class="auth-card">
+
+    <h2>Edit Profile</h2>
+
+    <form id="editProfileForm">
+
+      <div class="input-group">
+        <input type="text" id="editName" placeholder="Full Name">
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="editEmail" placeholder="Email">
+      </div>
+
+      <button class="auth-btn" type="submit">
+        Save Changes
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script>
+
+const user =
+JSON.parse(localStorage.getItem("currentUser"));
+
+if(user){
+
+document.getElementById("editName").value =
+user.name;
+
+document.getElementById("editEmail").value =
+user.email;
+
+}
+
+document.getElementById("editProfileForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+user.name =
+document.getElementById("editName").value;
+
+user.email =
+document.getElementById("editEmail").value;
+
+localStorage.setItem(
+"currentUser",
+JSON.stringify(user)
+);
+
+alert("Profile Updated");
+
+window.location.href="profile.html";
+
+});
+
+</script>
+
+</body>
+</html>

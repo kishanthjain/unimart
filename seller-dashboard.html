@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seller Dashboard | UniMart</title>
+  <link rel="stylesheet" href="g.css">
+</head>
+<body>
+
+<div class="page-shell">
+  <a href="profile.html" class="back-home">← Back</a>
+
+  <div class="page-hero">
+    <h1>📤 Seller Dashboard</h1>
+    <p>Manage your listings, offers, and buyer contact requests.</p>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="dash-card">📌 Active Listings <h2>0</h2></div>
+    <div class="dash-card">💰 Offers Received <h2>0</h2></div>
+    <div class="dash-card">📞 Contact Requests <h2>0</h2></div>
+    <div class="dash-card">✅ Sold Items <h2>0</h2></div>
+  </div>
+
+  <div class="empty-box">
+    <h2>No listings yet</h2>
+    <p>Post your first item and start selling.</p>
+    <a href="post-item.html" class="auth-btn">
+      Sell an Item
+    </a>
+    <br><br>
+    <a href="contact-requests.html" class="auth-btn">
+      View Contact Requests
+    </a>
+  </div>
+  <div id="sellerOrders"></div>
+
+<h2 style="margin-top:40px;">📤 My Listings</h2>
+
+<div id="sellerListings"></div>
+</div>
+<script src="marketplace.js"></script>
+</body>
+</html>

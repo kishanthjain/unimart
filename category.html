@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Category | UniMart</title>
+  <link rel="stylesheet" href="g.css">
+</head>
+<body>
+
+<div class="page-shell">
+  <a href="index.html" class="back-home">← Back</a>
+
+  <div class="page-hero">
+    <h1 id="categoryTitle">Category</h1>
+    <p>Browse items from this category.</p>
+  </div>
+
+  <section class="items-grid" id="categoryItems"></section>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
+
+document.getElementById("categoryTitle").innerText = type;
+
+const categoryItems = document.getElementById("categoryItems");
+
+const demoItems = {
+  "Academic": [
+    ["📘", "Engineering Mathematics Book", "₹350", "MVJCE"],
+    ["📐", "Drawing Kit", "₹250", "RNSIT"]
+  ],
+  "Electronics": [
+    ["💻", "Laptop Stand", "₹600", "DSCE"],
+    ["🔌", "Arduino Starter Kit", "₹850", "MVJCE"]
+  ],
+  "Transport": [
+    ["🚲", "College Cycle", "₹3200", "BMSCE"],
+    ["🪖", "Helmet", "₹400", "PES"]
+  ],
+  "Hostel Essentials": [
+    ["🪑", "Study Chair", "₹700", "RNSIT"],
+    ["💡", "Study Lamp", "₹300", "MVJCE"]
+  ],
+  "Fashion": [
+    ["🎒", "Backpack", "₹450", "PES"],
+    ["👟", "Sports Shoes", "₹900", "DSCE"]
+  ],
+  "Fitness": [
+    ["🏋️", "Dumbbells", "₹800", "MVJCE"],
+    ["🏏", "Cricket Bat", "₹700", "RNSIT"]
+  ]
+};
+
+const items = demoItems[type] || [];
+
+categoryItems.innerHTML = items.map(item => `
+  <div class="item-card">
+    <div class="image-box electronics">${item[0]}</div>
+    <div class="item-info">
+      <h3>${item[1]}</h3>
+      <p>${type} • ${item[3]}</p>
+      <div class="price-row">
+        <h2>${item[2]}</h2>
+        <span>Good</span>
+      </div>
+    <a href="item-details.html?name=${encodeURIComponent(item[1])}&price=${item[2].replace('₹','')}&category=${type}&college=${item[3]}&condition=Good&desc=${encodeURIComponent('Good condition item posted by student.')}" class="view-btn">
+  View Details
+</a>
+    </div>
+  </div>
+`).join("");
+</script>
+
+</body>
+</html>

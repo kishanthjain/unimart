@@ -75,56 +75,78 @@ function getDemoItem() {
   };
 }
 
-function addToWishlist() {
-  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-  const item = getDemoItem();
+function renderHomeItems(list) {
+  if (!itemsGrid) return;
 
-  if (!wishlist.find(i => i.id === item.id)) {
-    wishlist.push(item);
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    alert("Added to Wishlist");
-  } else {
-    alert("Already in Wishlist");
-  }
-}
-
-function addToCart() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const item = getDemoItem();
-
-  if (!cart.find(i => i.id === item.id)) {
-    cart.push(item);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Added to Cart");
-  } else {
-    alert("Already in Cart");
-  }
-}
-function buyNow() {
-  const user = JSON.parse(localStorage.getItem("currentUser"));
-
-  if (!user) {
-    alert("Please login first");
-    window.location.href = "login.html";
+  if (list.length === 0) {
+    itemsGrid.innerHTML = `
+      <div class="empty-box">
+        <h2>No items found</h2>
+        <p>Try searching something else.</p>
+      </div>
+    `;
     return;
   }
 
-  const order = {
-    id: Date.now(),
-    itemName: "Arduino Starter Kit",
-    price: 850,
-    buyerName: user.name,
-    buyerEmail: user.email,
-    status: "Requested"
-  };
+  itemsGrid.innerHTML = list.map(item => `
+    <div class="item-card">
+      <div class="image-box electronics">
+        ${item.image ? `<img src="${item.image}" class="item-img">` : "📦"}
+      </div>
 
-  let orders = JSON.parse(localStorage.getItem("orders")) || [];
-  orders.push(order);
+      <div class="item-info">
+        <h3>${item.name}</h3>
+        <p>${item.category} • ${item.college}</p>
 
-  localStorage.setItem("orders", JSON.stringify(orders));
+        <div class="price-row">
+          <h2>₹${item.price}</h2>
+          <span>${item.condition}</span>
+        </div>
 
-  alert("Buy request sent to seller!");
-  window.location.href = "orders.html";
+        <a href="item-details.html?id=${item.id}" class="view-btn">View Details</a>
+      </div>
+    </div>
+  `).join("");
+}
+
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+
+function applyFilters() {
+  const items = JSON.parse(localStorage.getItem("items")) || [];
+
+  const searchText = searchInput ? searchInput.value.toLowerCase().trim() : "";
+  const selectedCategory = categoryFilter ? categoryFilter.value : "All";
+
+  const filtered = items.filter(item => {
+    const name = item.name.toLowerCase();
+    const category = item.category.toLowerCase();
+    const college = item.college.toLowerCase();
+
+    const matchesSearch =
+      name.includes(searchText) ||
+      category.includes(searchText) ||
+      college.includes(searchText);
+
+    const matchesCategory =
+      selectedCategory === "All" || item.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
+
+  renderHomeItems(filtered);
+}
+
+if (itemsGrid) {
+  applyFilters();
+}
+
+if (searchInput) {
+  searchInput.addEventListener("input", applyFilters);
+}
+
+if (categoryFilter) {
+  categoryFilter.addEventListener("change", applyFilters);
 }
 const ordersList = document.getElementById("ordersList");
 
@@ -426,4 +448,86 @@ if (sellerListings) {
     `).join("");
 
   }
+}
+// FINAL SEARCH + FILTER FIX
+
+const finalSearchInput = document.getElementById("searchInput");
+const finalCategoryFilter = document.getElementById("categoryFilter");
+const finalItemsGrid = document.getElementById("itemsGrid");
+
+function finalRenderItems(items) {
+  if (!finalItemsGrid) return;
+
+  if (items.length === 0) {
+    finalItemsGrid.innerHTML = `
+      <div class="empty-box">
+        <h2>No items found</h2>
+        <p>Try another search or category.</p>
+      </div>
+    `;
+    return;
+  }
+
+  finalItemsGrid.innerHTML = items.map(item => `
+    <div class="item-card">
+      <div class="image-box electronics">
+        ${item.image ? `<img src="${item.image}" class="item-img">` : "📦"}
+      </div>
+
+      <div class="item-info">
+        <h3>${item.name}</h3>
+        <p>${item.category} • ${item.college}</p>
+
+        <div class="price-row">
+          <h2>₹${item.price}</h2>
+          <span>${item.condition}</span>
+        </div>
+
+        <a href="item-details.html?id=${item.id}" class="view-btn">View Details</a>
+      </div>
+    </div>
+  `).join("");
+}
+
+function finalApplyFilters() {
+  const allItems = JSON.parse(localStorage.getItem("items")) || [];
+
+  const searchText = finalSearchInput
+    ? finalSearchInput.value.toLowerCase().trim()
+    : "";
+
+  const selectedCategory = finalCategoryFilter
+    ? finalCategoryFilter.value
+    : "All";
+
+  const filteredItems = allItems.filter(item => {
+    const itemName = item.name.toLowerCase();
+    const itemCategory = item.category.toLowerCase();
+    const itemCollege = item.college.toLowerCase();
+
+    const searchMatch =
+      itemName.includes(searchText) ||
+      itemCategory.includes(searchText) ||
+      itemCollege.includes(searchText);
+
+    const categoryMatch =
+      selectedCategory === "All" ||
+      item.category === selectedCategory;
+
+    return searchMatch && categoryMatch;
+  });
+
+  finalRenderItems(filteredItems);
+}
+
+if (finalItemsGrid) {
+  finalApplyFilters();
+}
+
+if (finalSearchInput) {
+  finalSearchInput.addEventListener("input", finalApplyFilters);
+}
+
+if (finalCategoryFilter) {
+  finalCategoryFilter.addEventListener("change", finalApplyFilters);
 }

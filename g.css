@@ -532,8 +532,14 @@ footer p {
 }
 .compact-hero {
   min-height: 65vh;
-  padding-top: 55px;
-  padding-bottom: 55px;
+  padding: 55px 8%;
+
+  background:
+    linear-gradient(rgba(15,23,42,0.55), rgba(15,23,42,0.65)),
+    url("images/hero.png.jpg") !important;
+
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .compact-hero .hero-content h1 {
@@ -1349,4 +1355,49 @@ body{
   height:220px;
   object-fit:cover;
   border-radius:20px;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.9)),
+    url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 35px 35px;
+}
+
+.hero-image {
+  display: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.hero h1 {
+  color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(15,23,42,0.65),
+      rgba(15,23,42,0.75)
+    ),
+    url("images/hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 600px;
+
+  display: flex;
+  align-items: center;
 }

@@ -1,3 +1,7 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
 :root {
   --bg: #0f172a;
   --card: #1e293b;
@@ -1212,4 +1216,67 @@ footer p {
     grid-template-columns: 1fr !important;
     padding: 35px 20px !important;
   }
+}
+/* PREMIUM UI UPGRADE */
+
+body{
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #312e81
+  );
+}
+
+.item-card,
+.auth-card,
+.dash-card,
+.request-card,
+.cat-card{
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+}
+
+.item-card:hover,
+.dash-card:hover,
+.cat-card:hover{
+  transform: translateY(-8px);
+  transition: 0.3s;
+}
+
+.auth-btn{
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #6366f1
+  );
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(99,102,241,.4);
+}
+.item-card,
+.cat-card,
+.dash-card,
+.auth-card,
+.auth-btn{
+  transition: all 0.3s ease;
+}
+.navbar{
+  backdrop-filter: blur(15px);
+  background: rgba(15,23,42,0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.hero h1{
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.hero p{
+  font-size: 1.15rem;
+  opacity: 0.9;
 }

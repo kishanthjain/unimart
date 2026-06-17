@@ -105,7 +105,6 @@ nav a:hover {
   font-size: 4.2rem;
   line-height: 1.05;
   margin-bottom: 24px;
-  color: white !important;
 }
 
 .hero-content p {
@@ -533,7 +532,7 @@ footer p {
 }
 .compact-hero {
   height: 100vh;
-  
+  padding: 55px 8%;
 
   background:
     linear-gradient(rgba(15,23,42,0.55), rgba(15,23,42,0.65)),
@@ -1401,19 +1400,4 @@ body{
 
   display: flex;
   align-items: center;
-}
-/* CATEGORY PAGE HERO BACKGROUND */
-.page-hero {
-  background:
-    linear-gradient(rgba(15,23,42,0.65), rgba(15,23,42,0.75)),
-    url("images/hero.jpg") !important;
-
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-
-  min-height: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }

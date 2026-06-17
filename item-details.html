@@ -81,6 +81,22 @@
     </div>
   </div>
 </section>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+
+const demoName = urlParams.get("name");
+const demoPrice = urlParams.get("price");
+const demoCategory = urlParams.get("category");
+const demoCollege = urlParams.get("college");
+const demoDesc = urlParams.get("desc");
+
+if (demoName) {
+  document.querySelector(".details-info h1").innerText = demoName;
+  document.querySelector(".details-price").innerText = "₹" + demoPrice;
+  document.querySelector(".muted").innerText = demoCategory + " • " + demoCollege;
+  document.querySelector(".description").innerText = demoDesc;
+}
+</script>
 <script src="marketplace.js"></script>
 
 </body>

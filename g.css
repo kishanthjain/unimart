@@ -1309,3 +1309,44 @@ body{
   border-radius:15px;
   backdrop-filter:blur(10px);
 }
+.hero-image img{
+  width: 300px;
+  max-width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.hero-compact-hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.hero-image img{
+    width:300px;
+    border-radius:15px;
+}
+.hero{
+  display:flex !important;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.hero-content{
+  flex:1;
+}
+
+.hero-image{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+
+.hero-image img{
+  width:320px;
+  height:220px;
+  object-fit:cover;
+  border-radius:20px;
+}

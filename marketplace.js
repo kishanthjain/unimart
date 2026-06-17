@@ -368,12 +368,11 @@ if (detailsPage) {
     document.querySelector(".muted").innerText = item.category + " • " + item.college;
     document.querySelector(".description").innerText = item.description;
   }
-  else {
+else {
   const name = params.get("name");
   const price = params.get("price");
   const category = params.get("category");
   const college = params.get("college");
-  const condition = params.get("condition");
   const desc = params.get("desc");
 
   if (name) {
@@ -383,6 +382,7 @@ if (detailsPage) {
     document.querySelector(".description").innerText = desc;
   }
 }
+
 }
 function updateItemStatus(id, status) {
   let items = JSON.parse(localStorage.getItem("items")) || [];

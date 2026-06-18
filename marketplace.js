@@ -3,7 +3,7 @@ console.log("marketplace loaded");
 if (itemsGrid) {
   const items = JSON.parse(localStorage.getItem("items")) || [];
 
-  if (items.length > 0) {
+  if (items.length >= 0) {
     itemsGrid.innerHTML = items.map(item => `
       <div class="item-card">
         <div class="image-box electronics">
@@ -530,4 +530,148 @@ if (finalSearchInput) {
 
 if (finalCategoryFilter) {
   finalCategoryFilter.addEventListener("change", finalApplyFilters);
+}
+// SEARCH + FILTER FINAL FIX
+
+const searchBoxFinal = document.getElementById("searchInput");
+const filterBoxFinal = document.getElementById("categoryFilter");
+const gridFinal = document.getElementById("itemsGrid");
+
+function showItemsFinal(items) {
+  if (!gridFinal) return;
+
+  if (items.length === 0) {
+    gridFinal.innerHTML = `
+      <div class="empty-box">
+        <h2>No items found</h2>
+        <p>Try another search or category.</p>
+      </div>
+    `;
+    return;
+  }
+
+  gridFinal.innerHTML = items.map(item => `
+    <div class="item-card">
+      <div class="image-box electronics">
+        ${item.image ? `<img src="${item.image}" class="item-img">` : "📦"}
+      </div>
+
+      <div class="item-info">
+        <h3>${item.name}</h3>
+        <p>${item.category} • ${item.college}</p>
+
+        <div class="price-row">
+          <h2>₹${item.price}</h2>
+          <span>${item.condition}</span>
+        </div>
+
+        <a href="item-details.html?id=${item.id}" class="view-btn">
+          View Details
+        </a>
+      </div>
+    </div>
+  `).join("");
+}
+
+function filterItemsFinal() {
+  const allItems = JSON.parse(localStorage.getItem("items")) || [];
+
+  const searchValue = searchBoxFinal
+    ? searchBoxFinal.value.toLowerCase().trim()
+    : "";
+
+  const categoryValue = filterBoxFinal
+    ? filterBoxFinal.value
+    : "All";
+
+  const filtered = allItems.filter(item => {
+    const name = item.name.toLowerCase();
+    const category = item.category.toLowerCase();
+    const college = item.college.toLowerCase();
+
+    const searchMatch =
+      name.includes(searchValue) ||
+      category.includes(searchValue) ||
+      college.includes(searchValue);
+
+    const categoryMatch =
+      categoryValue === "All" || item.category === categoryValue;
+
+    return searchMatch && categoryMatch;
+  });
+
+  showItemsFinal(filtered);
+}
+
+if (gridFinal) {
+  filterItemsFinal();
+}
+
+if (searchBoxFinal) {
+  searchBoxFinal.addEventListener("input", filterItemsFinal);
+}
+
+if (filterBoxFinal) {
+  filterBoxFinal.addEventListener("change", filterItemsFinal);
+}
+// DEMO ITEMS FOR SEARCH/FILTER
+if (!localStorage.getItem("items")) {
+  const demoItems = [
+    {
+      id: 1,
+      name: "Engineering Mathematics Book",
+      price: 350,
+      category: "Academic",
+      college: "MVJCE",
+      condition: "Good",
+      description: "Useful engineering mathematics book."
+    },
+    {
+      id: 2,
+      name: "Wireless Headphones",
+      price: 900,
+      category: "Electronics",
+      college: "RNSIT",
+      condition: "Like New",
+      description: "Wireless headphones in good condition."
+    },
+    {
+      id: 3,
+      name: "College Cycle",
+      price: 3200,
+      category: "Transport",
+      college: "DSCE",
+      condition: "Fair",
+      description: "Cycle for college travel."
+    },
+    {
+      id: 4,
+      name: "Study Chair",
+      price: 700,
+      category: "Hostel Essentials",
+      college: "BMSCE",
+      condition: "Good",
+      description: "Comfortable study chair."
+    },
+    {
+      id: 5,
+      name: "Arduino Starter Kit",
+      price: 850,
+      category: "Electronics",
+      college: "MVJCE",
+      condition: "Good",
+      description: "Arduino kit for electronics projects."
+    },
+    {
+      id: 6,
+      name: "College Backpack",
+      price: 450,
+      category: "Fashion",
+      college: "PES University",
+      condition: "Good",
+      description: "Backpack for college use."
+    }
+  ];
+
+  localStorage.setItem("items", JSON.stringify(demoItems));
 }

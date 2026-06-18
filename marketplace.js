@@ -560,6 +560,8 @@ function filterItemsFinal() {
 
     const categoryMatch =
       categoryValue === "All" || item.category === categoryValue;
+      const matchCollege =
+  college === "All" || item.college === college;
 
     return searchMatch && categoryMatch;
   });
@@ -643,6 +645,7 @@ if (!localStorage.getItem("items")) {
 
 const uniSearch = document.getElementById("searchInput");
 const uniCategory = document.getElementById("categoryFilter");
+const uniCollege = document.getElementById("collegeFilter");
 const uniGrid = document.getElementById("itemsGrid");
 
 function getAllItems() {
@@ -692,8 +695,9 @@ function showUniItems(items) {
 function runUniSearch() {
   const items = getAllItems();
 
-  const text = uniSearch ? uniSearch.value.toLowerCase() : "";
-  const category = uniCategory ? uniCategory.value : "All";
+ const text = uniSearch ? uniSearch.value.toLowerCase() : "";
+const category = uniCategory ? uniCategory.value : "All";
+const college = uniCollege ? uniCollege.value : "All";
 
   const result = items.filter(item => {
     const matchText =
@@ -704,7 +708,7 @@ function runUniSearch() {
     const matchCategory =
       category === "All" || item.category === category;
 
-    return matchText && matchCategory;
+    return matchText && matchCategory && matchCollege;
   });
 
   showUniItems(result);
@@ -720,5 +724,8 @@ if (uniSearch) {
 
 if (uniCategory) {
   uniCategory.addEventListener("change", runUniSearch);
+}
+if (uniCollege) {
+  uniCollege.addEventListener("change", runUniSearch);
 }
 

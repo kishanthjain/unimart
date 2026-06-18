@@ -1,3 +1,5 @@
+console.log("MARKETPLACE JS LOADED");
+
 const itemsGrid = document.getElementById("itemsGrid");
 console.log("marketplace loaded");
 if (itemsGrid) {
@@ -109,45 +111,7 @@ function renderHomeItems(list) {
   `).join("");
 }
 
-const searchInput = document.getElementById("searchInput");
-const categoryFilter = document.getElementById("categoryFilter");
 
-function applyFilters() {
-  const items = JSON.parse(localStorage.getItem("items")) || [];
-
-  const searchText = searchInput ? searchInput.value.toLowerCase().trim() : "";
-  const selectedCategory = categoryFilter ? categoryFilter.value : "All";
-
-  const filtered = items.filter(item => {
-    const name = item.name.toLowerCase();
-    const category = item.category.toLowerCase();
-    const college = item.college.toLowerCase();
-
-    const matchesSearch =
-      name.includes(searchText) ||
-      category.includes(searchText) ||
-      college.includes(searchText);
-
-    const matchesCategory =
-      selectedCategory === "All" || item.category === selectedCategory;
-
-    return matchesSearch && matchesCategory;
-  });
-
-  renderHomeItems(filtered);
-}
-
-if (itemsGrid) {
-  applyFilters();
-}
-
-if (searchInput) {
-  searchInput.addEventListener("input", applyFilters);
-}
-
-if (categoryFilter) {
-  categoryFilter.addEventListener("change", applyFilters);
-}
 const ordersList = document.getElementById("ordersList");
 
 if (ordersList) {
@@ -675,3 +639,86 @@ if (!localStorage.getItem("items")) {
 
   localStorage.setItem("items", JSON.stringify(demoItems));
 }
+// SIMPLE SEARCH + FILTER
+
+const uniSearch = document.getElementById("searchInput");
+const uniCategory = document.getElementById("categoryFilter");
+const uniGrid = document.getElementById("itemsGrid");
+
+function getAllItems() {
+  return JSON.parse(localStorage.getItem("items")) || [];
+}
+
+function showUniItems(items) {
+  if (!uniGrid) return;
+
+  uniGrid.innerHTML = "";
+
+  if (items.length === 0) {
+    uniGrid.innerHTML = `
+      <div class="empty-box">
+        <h2>No items found</h2>
+        <p>Try another keyword or category.</p>
+      </div>
+    `;
+    return;
+  }
+
+  items.forEach(item => {
+    uniGrid.innerHTML += `
+      <div class="item-card">
+        <div class="image-box electronics">
+          ${item.image ? `<img src="${item.image}" class="item-img">` : "📦"}
+        </div>
+
+        <div class="item-info">
+          <h3>${item.name}</h3>
+          <p>${item.category} • ${item.college}</p>
+
+          <div class="price-row">
+            <h2>₹${item.price}</h2>
+            <span>${item.condition}</span>
+          </div>
+
+          <a href="item-details.html?id=${item.id}" class="view-btn">
+            View Details
+          </a>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function runUniSearch() {
+  const items = getAllItems();
+
+  const text = uniSearch ? uniSearch.value.toLowerCase() : "";
+  const category = uniCategory ? uniCategory.value : "All";
+
+  const result = items.filter(item => {
+    const matchText =
+      item.name.toLowerCase().includes(text) ||
+      item.category.toLowerCase().includes(text) ||
+      item.college.toLowerCase().includes(text);
+
+    const matchCategory =
+      category === "All" || item.category === category;
+
+    return matchText && matchCategory;
+  });
+
+  showUniItems(result);
+}
+
+if (uniGrid) {
+  runUniSearch();
+}
+
+if (uniSearch) {
+  uniSearch.addEventListener("keyup", runUniSearch);
+}
+
+if (uniCategory) {
+  uniCategory.addEventListener("change", runUniSearch);
+}
+
